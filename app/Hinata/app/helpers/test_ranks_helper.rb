@@ -1,0 +1,2 @@
+module TestRanksHelper
+end
