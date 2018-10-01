@@ -1,3 +1,7 @@
 database.yml
 master.key
 docker-compose.yml
+
+
+unicorn.rb
+app/Hinata/vendor/bundle/
