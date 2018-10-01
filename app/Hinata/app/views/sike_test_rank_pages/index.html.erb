@@ -18,7 +18,7 @@
       <tr>
         <td><%= rank_num %></td>
         <td><%= sike_clear_scores.value %></td>
-        <td><%= sike_clear_scores.created_at %></td>
+        <td><%= sike_clear_scores.created_at.in_time_zone('Tokyo') %></td>
         <% rank_num += 1 %>
       </tr>
     <% end %>
@@ -44,7 +44,7 @@
       <tr>
         <td><%= rank_num %></td>
         <td><%= sike_gameover_scores.value %></td>
-        <td><%= sike_gameover_scores.created_at %></td>
+        <td><%= sike_gameover_scores.created_at.in_time_zone('Tokyo') %></td>
         <% rank_num += 1 %>
       </tr>
     <% end %>
