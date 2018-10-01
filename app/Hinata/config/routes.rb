@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :scores
   resources :test_ranks
 
-  #get   '/test_ranks',    to:'test_ranks#index'
+  get   '/test_ranks',    to:'test_ranks#index'
   post   '/test_ranks',    to:'test_ranks#create'
 
 
