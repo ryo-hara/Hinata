@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>SikeをクリアしたScore</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ScoreID</th>
+      <th>Value</th>
+      <th>CREATED_AT</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sike_clear_scores.each do |sike_clear_scores| %>
+      <tr>
+        <td><%= sike_clear_scores.id %></td>
+        <td><%= sike_clear_scores.score_id %></td>
+        <td><%= sike_clear_scores.value %></td>
+        <td><%= sike_clear_scores.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<h1>SikeをクリアできなかったScore</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ScoreID</th>
+      <th>Value</th>
+      <th>CREATED_AT</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sike_gameover_scores.each do |sike_gameover_scores| %>
+      <tr>
+        <td><%= sike_gameover_scores.id %></td>
+        <td><%= sike_gameover_scores.score_id %></td>
+        <td><%= sike_gameover_scores.value %></td>
+        <td><%= sike_gameover_scores.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
