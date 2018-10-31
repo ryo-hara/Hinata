@@ -65,7 +65,7 @@ function drawIndividuallyFlame_t( _x , _y , _context ){//score個々のフレー
 function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _score,_time){
     _context.fillStyle = COLOR_SNOW;
     drawString(_context , "45" , _rank , _x , _y);
-    drawString(_context , "45" , _score , _x + 250 , _y);
+    drawString(_context , "45" , _score , _x + 125 , _y);
 
     var _time_srice = Array();
     var _time_more_detail = Array();
@@ -73,7 +73,9 @@ function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _s
     _time_more_detail = _time_srice[2].split("T");//12T02:35:03.051Z
     _time_more_detail = _time_more_detail[1].split(".");//02:35:03
 
-    drawString(_context , "45" , _time_more_detail[0] , _x + 400 , _y);
+    drawString(_context , "45" , _time_srice[1] + "月" , _x + 340 , _y);
+    drawString(_context , "45" , _time_srice[2].split("T")[0] + "日" , _x + 450 , _y);
+    drawString(_context , "45" , _time_more_detail[0] , _x + 600 , _y);
     // 11/02/12:10-20秒
 }
 
