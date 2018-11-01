@@ -1,37 +1,3 @@
-const FLAME_SIZE_WIDTH_t = 960;
-const FLAME_SIZE_HEIGHT_t = 640;
-
-const MAIN_FLAME_MARGIN_t = 20;
-
-const DISPLAY_SCORE_NUM_t = 5;
-
-var test_name  = new Array(DISPLAY_SCORE_NUM);
-var test_score = new Array(DISPLAY_SCORE_NUM);
-
-var test_update_month = new Array(DISPLAY_SCORE_NUM);
-var test_update_day   = new Array(DISPLAY_SCORE_NUM);
-var test_update_time  = new Array(DISPLAY_SCORE_NUM);
-var test_update_second = new Array(DISPLAY_SCORE_NUM);
-
-test_name[0] = "AAA";
-test_name[1] = "BBB";
-test_name[2] = "CCC";
-test_name[3] = "DDD";
-test_name[4] = "EEE";
-
-test_score[0] = "1000";
-test_score[1] = "900";
-test_score[2] = "800";
-test_score[3] = "700";
-test_score[4] = "600";
-
-
-
-
-
-
-
-
 
 function drawString_t(_context , _char_size , _string , _x , _y ){
     _context.font = _char_size+"px MPlus_1c_light";
@@ -76,22 +42,25 @@ function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _s
     // 11/02/12:10-20秒
 }
 
-function drawCanvas_sike_clear() {
+function drawIndividuallyGameScoreCanvas(_url) {
 
     var response_text;
     var response_json ;
 
     $.ajax({
-        url: '/sike_ajax_clear_scores',
+        url: _url,
         type: 'get',
         dataType: 'json',
         async: true,
-      }).fail(function(response) {
+
+    }).fail(function(response) {
+        
         alert('fail');
-      }).done(function(response) {
+
+    }).done(function(response) {
+
         response_text = JSON.stringify(response);
         response_json = JSON.parse(response_text);
-
         
         main_canvas = document.getElementById('myCanvas');
 
@@ -102,7 +71,7 @@ function drawCanvas_sike_clear() {
 
 
         //画面内オブジェクトの全削除
-        context.clearRect(0, 0, FLAME_SIZE_WIDTH_t, FLAME_SIZE_HEIGHT_t);
+        context.clearRect(0, 0, FLAME_SIZE_WIDTH, FLAME_SIZE_HEIGHT);
 
 
         drawFlame_t(context);
@@ -128,8 +97,8 @@ function drawCanvas_sike_clear() {
 
 function score_view_main(_name){
     if(_name == 'sike_clear'){
-        drawCanvas_sike_clear()
-        setInterval(drawCanvas_sike_clear,10000)
+        drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR)
+        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR),10000)
     }
 }
 
