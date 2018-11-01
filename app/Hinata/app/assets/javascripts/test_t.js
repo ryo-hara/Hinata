@@ -1,6 +1,3 @@
-var main_canvas;
-var context;
-
 const FLAME_SIZE_WIDTH_t = 960;
 const FLAME_SIZE_HEIGHT_t = 640;
 
@@ -37,15 +34,15 @@ test_score[4] = "600";
 
 
 function drawString_t(_context , _char_size , _string , _x , _y ){
-    _context.font = _char_size+"px cursive";
+    _context.font = _char_size+"px MPlus_1c_light";
     _context.fillText(_string,_x,_y);
 }
 
 function drawFlame_t(_context){ 
     const MARGIN = MAIN_FLAME_MARGIN;
     _context.beginPath();
-    _context.rect(MARGIN, MARGIN, FLAME_SIZE_WIDTH-MARGIN*2, FLAME_SIZE_HEIGHT-MARGIN*2);
-    _context.fillStyle = COLOR_KHAKI;
+    _context.rect(0, 0, FLAME_SIZE_WIDTH, FLAME_SIZE_HEIGHT);
+    _context.fillStyle = COLOR_DEEP_COVE;
     _context.fill();
     _context.closePath();
 }
@@ -57,15 +54,15 @@ function drawIndividuallyFlame_t( _x , _y , _context ){//score個々のフレー
     const SIZE_X = 900;
     _context.beginPath();
     _context.rect(_x + MARGIN_X , _y + MARGIN_Y, SIZE_X , SIZE_Y);
-    _context.fillStyle = COLOR_DODGERBLUE;
+    _context.fillStyle = COLOR_DEEP_BLUE_FLAT;
     _context.fill();
     _context.closePath();
 }
 
 function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _score,_time){
     _context.fillStyle = COLOR_SNOW;
-    drawString(_context , "45" , _rank , _x , _y);
-    drawString(_context , "45" , _score , _x + 125 , _y);
+    drawString_t(_context , "45" , _rank , _x , _y);
+    drawString_t(_context , "45" , _score , _x + 125 , _y);
 
     var _time_srice = Array();
     var _time_more_detail = Array();
@@ -73,31 +70,66 @@ function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _s
     _time_more_detail = _time_srice[2].split("T");//12T02:35:03.051Z
     _time_more_detail = _time_more_detail[1].split(".");//02:35:03
 
-    drawString(_context , "45" , _time_srice[1] + "月" , _x + 340 , _y);
-    drawString(_context , "45" , _time_srice[2].split("T")[0] + "日" , _x + 450 , _y);
-    drawString(_context , "45" , _time_more_detail[0] , _x + 600 , _y);
+    drawString_t(_context , "45" , _time_srice[1] + "月" , _x + 340 , _y);
+    drawString_t(_context , "45" , _time_srice[2].split("T")[0] + "日" , _x + 450 , _y);
+    drawString_t(_context , "45" , _time_more_detail[0] , _x + 600 , _y);
     // 11/02/12:10-20秒
 }
 
+function drawCanvas_sike_clear() {
+
+    var response_text;
+    var response_json ;
+
+    $.ajax({
+        url: '/sike_ajax_clear_scores',
+        type: 'get',
+        dataType: 'json',
+        async: true,
+      }).fail(function(response) {
+        alert('fail');
+      }).done(function(response) {
+        response_text = JSON.stringify(response);
+        response_json = JSON.parse(response_text);
+
+        
+        main_canvas = document.getElementById('myCanvas');
+
+        if (!main_canvas || !main_canvas.getContext) {
+            return false;
+        }
+        context = main_canvas.getContext('2d');
 
 
-function drawCanvas_t() {
-    main_canvas = document.getElementById('myCanvas');
+        //画面内オブジェクトの全削除
+        context.clearRect(0, 0, FLAME_SIZE_WIDTH_t, FLAME_SIZE_HEIGHT_t);
 
-    if (!main_canvas || !main_canvas.getContext) {
-        return false;
-    }
-    context = main_canvas.getContext('2d');
 
-    drawFlame_t(context);
-    const ONCE_INDFLAME_SIZE = 120;//余白アリの一個のフレームのサイズ
-    for(var i = 0; i < 5; i++){
-        drawIndividuallyFlame_t(MAIN_FLAME_MARGIN,MAIN_FLAME_MARGIN + ONCE_INDFLAME_SIZE*i,context);
-        drawIndividuallyString_AddTimes(context ,
-             MAIN_FLAME_MARGIN + 80 , MAIN_FLAME_MARGIN + ONCE_INDFLAME_SIZE*i + 70 
-            , i + 1 , test_name[i] , gon.test_sike_clear_scores[i].value ,gon.test_sike_clear_scores[i].created_at);
-            //date処理の追加
-    }
+        drawFlame_t(context);
+        const ONCE_INDFLAME_SIZE = 120;//余白アリの一個のフレームのサイズ
+    
+        context.fillStyle = COLOR_SNOW;
+        for(var i = 0; i < 5; i++){
+            drawIndividuallyFlame_t(MAIN_FLAME_MARGIN,MAIN_FLAME_MARGIN + ONCE_INDFLAME_SIZE*i,context);
+            drawIndividuallyString_AddTimes(context ,
+                 MAIN_FLAME_MARGIN + 80 , MAIN_FLAME_MARGIN + ONCE_INDFLAME_SIZE*i + 70 
+                , i + 1 , test_name[i] , response_json[i].value ,response_json[i].created_at);
+                //date処理の追加
+        }
+    
+      });
+ 
 }
 
+
+
+
+
+
+function score_view_main(_name){
+    if(_name == 'sike_clear'){
+        drawCanvas_sike_clear()
+        setInterval(drawCanvas_sike_clear,10000)
+    }
+}
 

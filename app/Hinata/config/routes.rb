@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   
   get   '/sike_test_rank_pages',    to:'sike_test_rank_pages#index'
 
+  get   'sike_ajax_clear_scores',   to:'sike_test_rank_pages#ajax_clear_scores'
+  get   'sike_ajax_gameover_scores',   to:'sike_test_rank_pages#ajax_gameover_scores'
+
 
   Rails.application.routes.draw do
     namespace :api, {format: 'json'} do

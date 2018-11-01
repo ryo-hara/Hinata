@@ -1,3 +1,44 @@
 // Place all the styles related to the SikeTestRankPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div{
+    
+}
+  
+@font-face {
+    font-family: 'MPlus_1c_thin';
+    src: font-url('mplus-1c-thin.ttf') format('truetype');;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'MPlus_1c_medium';
+    src: font-url('mplus-1c-medium.ttf') format('truetype');;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'MPlus_1c_light';
+    src: font-url('mplus-1c-light.ttf') format('truetype');;
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+.score_page_title{
+  font-family: 'MPlus_1c_light';
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+  
+
+
+  
+  body {
+    background-color: #130f40;
+  }
+  
+  

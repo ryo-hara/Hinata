@@ -4,26 +4,32 @@
 
 
     <head>
-        <h1>SikeをクリアしたScore</h1>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+        <meta charset="utf-8" />
+    </head>
+
+
+
+    <body >
+        <br>
+        <br>
+        <div class="score_page_title">
+            Score
+        </div>
+
+        <br>
+        <br>
         <br>
         <br>
         
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <style>
-            * { padding: 0; margin: 0; }
-            canvas { background: #eee; display: block; margin: 0 auto; }
+            canvas { display: block; margin: 0 auto; }
         </style>
-
         <canvas id="myCanvas" width="960" height="640"></canvas>
 
-        <meta charset="utf-8" />
 
-    </head>
-
-    <body style="background-color:#D0D0D0;">
-
-        <body onload="drawCanvas_t();"></body>"
+        <body onload="score_view_main('sike_clear');"></body>"
 
     </body>
 
