@@ -25,8 +25,8 @@ function drawIndividuallyFlame_t( _x , _y , _context , _color){//score個々の�
     _context.closePath();
 }
 
-function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _score,_time){
-    _context.fillStyle = COLOR_SNOW;
+function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _score,_time,_string_color){
+    _context.fillStyle = _string_color;//COLOR_SNOW;
     drawString_t(_context , "45" , _rank , _x , _y);
     drawString_t(_context , "45" , _score , _x + 125 , _y);
 
@@ -34,7 +34,15 @@ function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _s
     var _time_more_detail = Array();
     _time_srice = _time.split("-");//2018-10-12T02:35:03.051Z
     _time_more_detail = _time_srice[2].split("T");//12T02:35:03.051Z
+    var _date = _time_more_detail[0].split(".");
     _time_more_detail = _time_more_detail[1].split(".");//02:35:03
+
+    var _time = Number(_time_more_detail[0].split(":")[0])+9;
+    if(_time >= 24){
+        _time = _time%24;
+        _date = String(Number(_date)+1);
+    }
+    _time_more_detail[0] = String(_time) + ":" + _time_more_detail[0].split(":")[1] + ":" + _time_more_detail[0].split(":")[2] ;
 
     drawString_t(_context , "45" , _time_srice[1] + "月" , _x + 340 , _y);
     drawString_t(_context , "45" , _time_srice[2].split("T")[0] + "日" , _x + 450 , _y);
@@ -42,7 +50,7 @@ function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _s
     // 11/02/12:10-20秒
 }
 
-function drawIndividuallyGameScoreCanvas(_url , _main_color, _back_color) {
+function drawIndividuallyGameScoreCanvas(_url , _main_color, _back_color , _string_color) {
 
     var response_text;
     var response_json ;
@@ -74,15 +82,19 @@ function drawIndividuallyGameScoreCanvas(_url , _main_color, _back_color) {
         context.clearRect(0, 0, FLAME_SIZE_WIDTH, FLAME_SIZE_HEIGHT);
 
 
-        drawFlame_t(context , _main_color);
+        drawFlame_t(context , _back_color);
         const ONCE_INDFLAME_SIZE = 120;//余白アリの一個のフレームのサイズ
     
         context.fillStyle = COLOR_SNOW;
+
+
         for(var i = 0; i < 5; i++){
-            drawIndividuallyFlame_t(MAIN_FLAME_MARGIN,MAIN_FLAME_MARGIN + ONCE_INDFLAME_SIZE*i,context , _back_color);
+            var create_time = response_json[i].created_at;
+
+            drawIndividuallyFlame_t(MAIN_FLAME_MARGIN,MAIN_FLAME_MARGIN + ONCE_INDFLAME_SIZE*i,context , _main_color );
             drawIndividuallyString_AddTimes(context ,
                  MAIN_FLAME_MARGIN + 80 , MAIN_FLAME_MARGIN + ONCE_INDFLAME_SIZE*i + 70 
-                , i + 1 , test_name[i] , response_json[i].value ,response_json[i].created_at);
+                , i + 1 , test_name[i] , response_json[i].value ,create_time , _string_color);
                 //date処理の追加
         }
     
@@ -96,14 +108,31 @@ function drawIndividuallyGameScoreCanvas(_url , _main_color, _back_color) {
 
 
 function score_view_main(_name){
-    if(_name == 'sike_clear'){
-        drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT )
-        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT ),10000)
+
+    if(_name == 'magic_wars_clear'){
+        drawIndividuallyGameScoreCanvas(AJAX_URL_MAGICWARS_CLEAR , COLOR_MAGICWARS_MAIN , COLOR_MAGICWARS_BACK , COLOR_MAGICWARS_STRING )
+        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_MAGICWARS_CLEAR , COLOR_MAGICWARS_MAIN , COLOR_MAGICWARS_BACK , COLOR_MAGICWARS_STRING),10000)
     }
 
+    if(_name == 'nastassja_clear'){
+        drawIndividuallyGameScoreCanvas(AJAX_URL_NASTASSJA_CLEAR , COLOR_NASTASSJA_MAIN , COLOR_NASTASSJA_BACK , COLOR_NASTASSJA_STRING )
+        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_NASTASSJA_CLEAR , COLOR_NASTASSJA_MAIN , COLOR_NASTASSJA_BACK , COLOR_NASTASSJA_STRING),10000)
+    }
+
+
     if(_name == 'oboro_clear'){
-        drawIndividuallyGameScoreCanvas(AJAX_URL_OBORO_CLEAR , COLOR_OBORO_MAIN , COLOR_OBORO_BACK )
-        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_OBORO_CLEAR , COLOR_OBORO_MAIN , COLOR_OBORO_BACK),10000)
+        drawIndividuallyGameScoreCanvas(AJAX_URL_OBORO_CLEAR , COLOR_OBORO_MAIN , COLOR_OBORO_BACK , COLOR_OBORO_STRING)
+        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_OBORO_CLEAR , COLOR_OBORO_MAIN , COLOR_OBORO_BACK , COLOR_OBORO_STRING),10000)
+    }
+
+    if(_name == 'reieiya_clear'){
+        drawIndividuallyGameScoreCanvas(AJAX_URL_REIEIYA_CLEAR , COLOR_REIEIYA_MAIN , COLOR_REIEIYA_BACK , COLOR_REIEIYA_STRING )
+        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_REIEIYA_CLEAR , COLOR_REIEIYA_MAIN , COLOR_REIEIYA_BACK  , COLOR_REIEIYA_STRING ),10000)
+    }
+
+    if(_name == 'sike_clear'){
+        drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW )
+        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW ),10000)
     }
 
 }

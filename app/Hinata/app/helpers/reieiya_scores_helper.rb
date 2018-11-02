@@ -1,0 +1,2 @@
+module ReieiyaScoresHelper
+end
