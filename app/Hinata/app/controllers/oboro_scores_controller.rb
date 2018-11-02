@@ -1,20 +1,15 @@
 class OboroScoresController < ApplicationController
 
-    def get_score_datas
-        gon.test_sike_clear_scores = Score.where(score_id: 100).order("value DESC")
-        gon.test_sike_gameover_scores = Score.where(score_id: 101).order("value DESC")
+    def clear_index
     end
 
-
     def ajax_clear_scores
-        get_score_datas()
-        @sike_clear_scores = Score.where(score_id: 100).order("value DESC")
+        @sike_clear_scores = Score.where(score_id: 130).order("value DESC")
         render json: @sike_clear_scores
     end
 
     def ajax_gameover_scores
-        get_score_datas()
-        @sike_gameover_scores = Score.where(score_id: 101).order("value DESC")
+        @sike_gameover_scores = Score.where(score_id: 140).order("value DESC")
         render json: @sike_gameover_scores
     end
 

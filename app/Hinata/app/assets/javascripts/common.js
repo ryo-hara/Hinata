@@ -13,6 +13,10 @@ const COLOR_LIGHT_YELLOW = "#ffbe76";
 const COLOR_DEEP_BLUE_FLAT = "#4834d4";
 const COLOR_ICEPACK_BLUE_FLAT = "#c7ecee";
 
+const COLOR_OBORO_MAIN = "#af9fea";
+const COLOR_OBORO_BACK = "#8cdae2";
+
+
 
 const MAIN_FLAME_MARGIN = 20;
 
@@ -22,3 +26,4 @@ var test_name  = new Array(DISPLAY_SCORE_NUM);
 var test_score = new Array(DISPLAY_SCORE_NUM);
 
 var AJAX_URL_SIKE_CLEAR = "/sike_ajax_clear_scores";
+var AJAX_URL_OBORO_CLEAR = "/oboro_ajax_clear_scores";
