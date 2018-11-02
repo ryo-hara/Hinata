@@ -45,7 +45,7 @@ function drawIndividuallyString_AddTimes(_context , _x , _y , _rank , _name , _s
     _time_more_detail[0] = String(_time) + ":" + _time_more_detail[0].split(":")[1] + ":" + _time_more_detail[0].split(":")[2] ;
 
     drawString_t(_context , "45" , _time_srice[1] + "月" , _x + 340 , _y);
-    drawString_t(_context , "45" , _time_srice[2].split("T")[0] + "日" , _x + 450 , _y);
+    drawString_t(_context , "45" , String(_date) + "日" , _x + 450 , _y);
     drawString_t(_context , "45" , _time_more_detail[0] , _x + 600 , _y);
     // 11/02/12:10-20秒
 }
