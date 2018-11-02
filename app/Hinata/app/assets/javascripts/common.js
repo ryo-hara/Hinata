@@ -17,8 +17,8 @@ const COLOR_OBORO_MAIN = "#8cdae2";
 const COLOR_OBORO_BACK = "#af9fea";
 const COLOR_OBORO_STRING = '#ffffff';
 
-const COLOR_REIEIYA_MAIN = "#af9fea";
-const COLOR_REIEIYA_BACK = "#8cdae2";
+const COLOR_REIEIYA_MAIN = "#ffc048";
+const COLOR_REIEIYA_BACK = "#9AECDB";
 const COLOR_REIEIYA_STRING = '#ffffff';
 
 const COLOR_NASTASSJA_MAIN = "#eccc68";
