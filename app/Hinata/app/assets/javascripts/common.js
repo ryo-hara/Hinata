@@ -1,6 +1,8 @@
 var main_canvas;
 var context;
 
+const UPDATE_INTERVAL = 1000;
+
 const FLAME_SIZE_WIDTH = 960;
 const FLAME_SIZE_HEIGHT = 640;
 

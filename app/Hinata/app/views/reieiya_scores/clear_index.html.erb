@@ -5,6 +5,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="refresh" content="10; URL=">
 
         <meta charset="utf-8" />
     </head>
@@ -31,7 +32,12 @@
         <canvas id="myCanvas" width="960" height="640"></canvas>
 
 
-        <body onload="score_view_main('reieiya_clear');"></body>"
+        <body onload="setInterval(score_view_main('reieiya_clear'),1000);"></body>
+        <body onload="test=setInterval("alert('test')",5000")></body>
+
+        
+
+
 
     </body>
 

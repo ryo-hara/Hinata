@@ -111,28 +111,28 @@ function score_view_main(_name){
 
     if(_name == 'magic_wars_clear'){
         drawIndividuallyGameScoreCanvas(AJAX_URL_MAGICWARS_CLEAR , COLOR_MAGICWARS_MAIN , COLOR_MAGICWARS_BACK , COLOR_MAGICWARS_STRING )
-        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_MAGICWARS_CLEAR , COLOR_MAGICWARS_MAIN , COLOR_MAGICWARS_BACK , COLOR_MAGICWARS_STRING),10000)
+        //setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_MAGICWARS_CLEAR , COLOR_MAGICWARS_MAIN , COLOR_MAGICWARS_BACK , COLOR_MAGICWARS_STRING),UPDATE_INTERVAL)
     }
 
     if(_name == 'nastassja_clear'){
         drawIndividuallyGameScoreCanvas(AJAX_URL_NASTASSJA_CLEAR , COLOR_NASTASSJA_MAIN , COLOR_NASTASSJA_BACK , COLOR_NASTASSJA_STRING )
-        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_NASTASSJA_CLEAR , COLOR_NASTASSJA_MAIN , COLOR_NASTASSJA_BACK , COLOR_NASTASSJA_STRING),10000)
+        //setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_NASTASSJA_CLEAR , COLOR_NASTASSJA_MAIN , COLOR_NASTASSJA_BACK , COLOR_NASTASSJA_STRING),UPDATE_INTERVAL)
     }
 
 
     if(_name == 'oboro_clear'){
         drawIndividuallyGameScoreCanvas(AJAX_URL_OBORO_CLEAR , COLOR_OBORO_MAIN , COLOR_OBORO_BACK , COLOR_OBORO_STRING)
-        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_OBORO_CLEAR , COLOR_OBORO_MAIN , COLOR_OBORO_BACK , COLOR_OBORO_STRING),10000)
+        //setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_OBORO_CLEAR , COLOR_OBORO_MAIN , COLOR_OBORO_BACK , COLOR_OBORO_STRING),UPDATE_INTERVAL)
     }
 
     if(_name == 'reieiya_clear'){
         drawIndividuallyGameScoreCanvas(AJAX_URL_REIEIYA_CLEAR , COLOR_REIEIYA_MAIN , COLOR_REIEIYA_BACK , COLOR_REIEIYA_STRING )
-        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_REIEIYA_CLEAR , COLOR_REIEIYA_MAIN , COLOR_REIEIYA_BACK  , COLOR_REIEIYA_STRING ),10000)
+        //setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_REIEIYA_CLEAR , COLOR_REIEIYA_MAIN , COLOR_REIEIYA_BACK  , COLOR_REIEIYA_STRING ),UPDATE_INTERVAL)
     }
 
     if(_name == 'sike_clear'){
         drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW )
-        setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW ),10000)
+        //setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW ),UPDATE_INTERVAL)
     }
 
 }
