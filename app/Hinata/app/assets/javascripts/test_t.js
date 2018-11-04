@@ -134,6 +134,11 @@ function score_view_main(_name){
         drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW )
         //setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW ),UPDATE_INTERVAL)
     }
+    
+    if(_name == 'yadokari_clear'){
+        drawIndividuallyGameScoreCanvas(AJAX_URL_YADOKARI_CLEAR , COLOR_YADOKARI_MAIN , COLOR_YADOKARI_BACK , COLOR_SNOW )
+        //setInterval(drawIndividuallyGameScoreCanvas(AJAX_URL_SIKE_CLEAR , COLOR_DEEP_COVE , COLOR_DEEP_BLUE_FLAT , COLOR_SNOW ),UPDATE_INTERVAL)
+    }
 
 }
 

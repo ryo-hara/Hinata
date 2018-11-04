@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get   '/oboro_clear_score_pages',    to:'oboro_scores#clear_index'
   get   '/reieiya_clear_score_pages',    to:'reieiya_scores#clear_index'
   get   '/sike_test_rank_pages',    to:'sike_test_rank_pages#index'
+  get   '/yadokari_clear_score_pages',    to:'yadokari_scores#clear_index'
 
 
 
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   get   'nastassja_ajax_clear_scores',   to:'nastassja_scores#ajax_clear_scores'
   get   'oboro_ajax_clear_scores',   to:'oboro_scores#ajax_clear_scores'
   get   'reieiya_ajax_clear_scores',   to:'reieiya_scores#ajax_clear_scores'
+  get   'yadokari_ajax_clear_scores',    to:'yadokari_scores#ajax_clear_scores'
+
 
   #get   'oboro_ajax_gameover_scores',   to:'sike_test_rank_pages#ajax_gameover_scores'
 

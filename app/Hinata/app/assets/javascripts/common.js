@@ -31,6 +31,10 @@ const COLOR_MAGICWARS_MAIN = "#ff4757";
 const COLOR_MAGICWARS_BACK = "#ffffff";
 const COLOR_MAGICWARS_STRING = '#ffffff';
 
+const COLOR_YADOKARI_MAIN = "#ffc048";
+const COLOR_YADOKARI_BACK = "#ff7979";
+const COLOR_YADOKARI_STRING = '#ffffff';
+
 
 
 
@@ -47,3 +51,5 @@ var AJAX_URL_OBORO_CLEAR = "/oboro_ajax_clear_scores";
 var AJAX_URL_REIEIYA_CLEAR = "/reieiya_ajax_clear_scores";
 var AJAX_URL_NASTASSJA_CLEAR = "/nastassja_ajax_clear_scores";
 var AJAX_URL_MAGICWARS_CLEAR = "/magic_wars_ajax_clear_scores";
+var AJAX_URL_YADOKARI_CLEAR = "/yadokari_ajax_clear_scores";
+
